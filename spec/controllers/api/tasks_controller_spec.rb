@@ -13,6 +13,17 @@ describe Api::TasksController do
     end
   end
 
+  describe '#show' do
+    before do
+      get :show, { id: task.id }
+    end
+
+    specify do
+      expect(json_response['title']).to eql(task.title)
+      expect(json_response['content']).to eql(task.content)
+    end
+  end
+
   describe '#create' do
     let(:params) do
       { task: { title: 'Created Task', content: 'Dummy' } }

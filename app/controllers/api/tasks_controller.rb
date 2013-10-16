@@ -14,6 +14,10 @@ class Api::TasksController < ApplicationController
     render json: task.reload, status: 204
   end
 
+  def show
+    render json: task, status: 201
+  end
+
   def destroy
     task.destroy
     render nothing: true, status: 204
