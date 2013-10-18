@@ -6,12 +6,12 @@ class Api::TasksController < ApplicationController
 
   def create
     task = Task.create(safe_params)
-    render json: task, callback: params[:callback], status: 201
+    render json: task, status: 201
   end
 
   def update
     task.update_attributes(safe_params)
-    render json: task.reload, callback: params[:callback], status: 204
+    render json: task.reload, status: 204
   end
 
   def show
